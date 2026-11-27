@@ -1,0 +1,21 @@
+ID,Requirement,Priority,Type,Title,Preconditions,Steps,Expected result
+TC-01,R1,High,Positive,Cart subtotal is correct,Cart has 2 items (10.00 x 2 and 5.50 x 1),Open cart,Subtotal shows 25.50
+TC-02,R1,High,Boundary,Quantity 0 is not allowed,Item in cart,Set quantity to 0,Item is removed or an error is shown; total is not negative
+TC-03,R1,Medium,Boundary,Maximum quantity enforced,Item with stock 10,Set quantity to 11,Error shows available stock; quantity is not accepted
+TC-04,R1,High,Boundary,Tax rounding at half-cent,Item priced 0.99 with 8.5% tax,Proceed to review page,Tax rounds to 0.08 and total is 1.07
+TC-05,R2,High,Positive,Valid discount code applied,Cart total 100.00; code SAVE10 (10% off),Enter SAVE10 and apply,Total shows 90.00 and discount line is visible
+TC-06,R2,High,Negative,Expired code rejected,Code OLD20 expired yesterday,Enter OLD20 and apply,Error says code has expired; total unchanged
+TC-07,R2,Medium,Negative,Code cannot be applied twice,SAVE10 already applied,Apply SAVE10 again,Message says already applied; total unchanged
+TC-08,R2,Low,Boundary,Code is case-insensitive,Code SAVE10 valid,Enter save10,Discount applied
+TC-09,R3,High,Negative,Required shipping fields enforced,Checkout started,Leave all shipping fields empty and continue,Each required field shows an inline error; cannot continue
+TC-10,R3,Medium,Negative,Invalid postal code rejected,Country set to US,Enter ABCDE as postal code,Postal code error shown
+TC-11,R3,Low,Boundary,Name field maximum length,Checkout started,Enter 101 characters in name,Input is limited or error shown; no server error
+TC-12,R4,High,Positive,Approved card places order,Sandbox card 4242...,Enter details and place order,Order created and confirmation page shown
+TC-13,R4,High,Negative,Declined card keeps cart,Sandbox declined card,Enter details and place order,Decline message shown; cart intact; no order created
+TC-14,R4,High,Negative,Double-click on Place order,Valid card details entered,Double-click Place order quickly,Exactly one order is created and one charge made
+TC-15,R4,Medium,Negative,Expired card date rejected,Checkout at payment step,Enter an expiry date in the past,Validation error shown
+TC-16,R5,Medium,Positive,Confirmation email received,Order placed,Check inbox,Email arrives within 2 minutes with correct order number and total
+TC-17,R5,Low,Positive,Order number is unique,Two orders placed in a row,Compare order numbers,Numbers differ
+TC-18,R6,High,Positive,Stock decrements after order,Item stock 5,Order quantity 2,Stock shows 3
+TC-19,R6,High,Negative,Last item sold to one buyer only,Item stock 1; two browser sessions,Both sessions try to buy the item,One order succeeds; the other is told item is out of stock
+TC-20,R6,Medium,Negative,Out-of-stock item cannot be added,Item stock 0,Open product page,Add to cart is disabled and shows "Out of stock"
