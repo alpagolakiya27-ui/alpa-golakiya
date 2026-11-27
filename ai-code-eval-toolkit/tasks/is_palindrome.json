@@ -1,0 +1,17 @@
+{
+  "function": "is_palindrome",
+  "prompt": "Write is_palindrome(s: str) -> bool that returns True if s reads the same forwards and backwards, ignoring case and any non-alphanumeric characters. Raise TypeError for non-string input.",
+  "weights": {"correctness": 0.5, "edge_cases": 0.3, "quality": 0.2},
+  "cases": [
+    {"args": ["racecar"], "expected": true, "kind": "visible"},
+    {"args": ["hello"], "expected": false, "kind": "visible"},
+    {"args": ["A man, a plan, a canal: Panama"], "expected": true, "kind": "visible"},
+    {"args": ["Was it a car or a cat I saw?"], "expected": true, "kind": "visible"},
+    {"args": [""], "expected": true, "kind": "edge"},
+    {"args": [" "], "expected": true, "kind": "edge"},
+    {"args": ["a."], "expected": true, "kind": "edge"},
+    {"args": ["No 'x' in Nixon"], "expected": true, "kind": "edge"},
+    {"args": ["12321"], "expected": true, "kind": "edge"},
+    {"args": [null], "raises": "TypeError", "kind": "edge"}
+  ]
+}
