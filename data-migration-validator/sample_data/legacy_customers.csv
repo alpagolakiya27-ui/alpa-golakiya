@@ -1,0 +1,7 @@
+id,name,email,balance
+1,Acme Supplies,billing@acme.example,"1,250.00"
+2,Birch Logistics,ap@birch.example,300.5
+3,Cedar Retail,hello@cedar.example,0
+4,Delta Energy,finance@delta.example,9800
+5,Elm Builders,office@elm.example,45.10
+6,Fern Realty,info@fern.example,720
